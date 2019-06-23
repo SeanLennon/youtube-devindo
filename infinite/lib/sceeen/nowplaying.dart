@@ -31,7 +31,7 @@ class _NowPlayingState extends State<NowPlaying> {
         body: FutureBuilder(
           future: MovieRepository().getNowPlaying(1),
           builder: (BuildContext c, AsyncSnapshot s) {
-            if (s.data == null) {
+            if (!s.data.hasData) {
               return Center(
                 child: CircularProgressIndicator(),
               );
